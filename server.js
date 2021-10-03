@@ -15,8 +15,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-mongoose.connect(process.env.ATLAS_URI
-);
+mongoose.connect(process.env.ATLAS_URI, { useNewUrlParser: true, useCreateIndex: true });
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
